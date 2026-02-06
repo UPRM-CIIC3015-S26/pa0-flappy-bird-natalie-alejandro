@@ -1,3 +1,5 @@
+from operator import add
+
 import pygame, random
 pygame.init()
 '''
@@ -97,7 +99,7 @@ while running:
             # TODO 4: Fixing the scoring
             # When you pass through the pipes the score should be updated to the current score + 1. Implement the
             # logic to accomplish this scoring system.
-            score = 1
+            score = 1 + score
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
