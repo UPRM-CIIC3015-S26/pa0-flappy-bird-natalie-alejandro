@@ -15,10 +15,10 @@ pygame.display.set_caption("Flappy Bird")
 
 # Colors -->
 # NOTE: This is in the RGB (Red, Green, Blue) format
-WHITE = (255, 255, 255)
+WHITE = (191, 239, 255)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
-PLAYER = (255, 255, 255)
+PLAYER = (255, 255, 224)
 
 # Font Size -->
 big_font = pygame.font.SysFont(None, 80)
