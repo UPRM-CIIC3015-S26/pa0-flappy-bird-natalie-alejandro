@@ -1,3 +1,5 @@
+from operator import add
+
 import pygame, random
 pygame.init()
 '''
@@ -51,7 +53,7 @@ pipe_height = random.randint(100, 400)
 # TODO 2.2: The too fast problem
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
 # speed for the player to play in!
-pipe_speed = 8
+pipe_speed = 7.4
 
 score = 0
 game_over = False
@@ -97,7 +99,7 @@ while running:
             # TODO 4: Fixing the scoring
             # When you pass through the pipes the score should be updated to the current score + 1. Implement the
             # logic to accomplish this scoring system.
-            score = 1
+            score = 1 + score
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
