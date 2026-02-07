@@ -1,7 +1,13 @@
-from operator import add
+
 
 import pygame, random
 pygame.init()
+pygame.image.load('background2-9.png')
+pygame.mixer.init()
+pygame.mixer.music.load('Jaunty_Gumption.mp3')
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play(-1)
+
 '''
 Welcome to PA0 – Flappy Bird! Throughout this code, you are going to find a recreation of a game you have probably
 heard of before. This is an introductory assignment designed to help you familiarize yourself with what you can expect 
@@ -15,10 +21,11 @@ pygame.display.set_caption("Flappy Bird")
 
 # Colors -->
 # NOTE: This is in the RGB (Red, Green, Blue) format
-WHITE = (191, 239, 255)
+WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
-PLAYER = (255, 255, 224)
+PLAYER = pygame.color.Color("lightyellow1")
+LIGHT_BLUE = pygame.color.Color("lightblue1")
 
 # Font Size -->
 big_font = pygame.font.SysFont(None, 80)
@@ -53,7 +60,7 @@ pipe_height = random.randint(100, 400)
 # TODO 2.2: The too fast problem
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
 # speed for the player to play in!
-pipe_speed = 7.4
+pipe_speed = 6
 
 score = 0
 game_over = False
@@ -65,7 +72,7 @@ running = True
 while running:
     # TODO 6: Changing the name!
     # D'oh! This is not yout name isn't follow the detailed instructions on the PDF to complete this task.
-    name = "Homer Simpson"
+    name = "Alejandro Irizarry"
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -86,6 +93,7 @@ while running:
                     score = 0
                     game_over = False
                     game_started = True
+                    bird_y = 300
                     pipe_height = random.randint(100, 400)
 
     if game_started == True and game_over == False:
@@ -100,6 +108,7 @@ while running:
             # When you pass through the pipes the score should be updated to the current score + 1. Implement the
             # logic to accomplish this scoring system.
             score = 1 + score
+            pygame.mixer.Sound('point.mp3').play()
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
@@ -116,8 +125,8 @@ while running:
     # The color of the player is currently white, let's change that a bit! You are free to change the bird's
     # to whatever you wish. You will need to head back to where the PLAYER variable was created and change the values.
     pygame.draw.rect(screen, PLAYER, (bird_x, bird_y, 30, 30)) # Drawing the bird (You don't need to touch this line!)
-    pygame.draw.rect(screen, GREEN, (pipe_x, 0, pipe_width, pipe_height))
-    pygame.draw.rect(screen, GREEN, (pipe_x, pipe_height + pipe_gap, pipe_width, 600))
+    pygame.draw.rect(screen, LIGHT_BLUE, (pipe_x, 0, pipe_width, pipe_height))
+    pygame.draw.rect(screen, LIGHT_BLUE, (pipe_x, pipe_height + pipe_gap, pipe_width, 600))
     score_text = small_font.render(str(score), True, WHITE)
     screen.blit(score_text, (score_x, score_y))
 
@@ -130,6 +139,21 @@ while running:
     if game_over: # GameOver UI -->
         loss_text = small_font.render("Press Space to restart...", True, WHITE)
         screen.blit(loss_text, (85, 200))
+        pipe_speed = 6
+
+    if score >= 50:
+        pipe_speed = 20
+    elif score >= 30:
+        pipe_speed = 15
+    elif score >= 20:
+        pipe_speed = 10
+    elif score >= 10:
+        pipe_speed = 7.5
+    elif score >= 5: pipe_speed = 6.5
+
+
+
+
 
     pygame.display.update()
     clock.tick(60)
