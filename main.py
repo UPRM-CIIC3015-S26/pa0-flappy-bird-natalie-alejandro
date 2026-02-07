@@ -19,6 +19,7 @@ WHITE = (191, 239, 255)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 PLAYER = (255, 255, 224)
+LIGHT_BLUE = (173,216,230)
 
 # Font Size -->
 big_font = pygame.font.SysFont(None, 80)
@@ -86,6 +87,7 @@ while running:
                     score = 0
                     game_over = False
                     game_started = True
+                    bird_y = 300
                     pipe_height = random.randint(100, 400)
 
     if game_started == True and game_over == False:
@@ -116,8 +118,8 @@ while running:
     # The color of the player is currently white, let's change that a bit! You are free to change the bird's
     # to whatever you wish. You will need to head back to where the PLAYER variable was created and change the values.
     pygame.draw.rect(screen, PLAYER, (bird_x, bird_y, 30, 30)) # Drawing the bird (You don't need to touch this line!)
-    pygame.draw.rect(screen, GREEN, (pipe_x, 0, pipe_width, pipe_height))
-    pygame.draw.rect(screen, GREEN, (pipe_x, pipe_height + pipe_gap, pipe_width, 600))
+    pygame.draw.rect(screen, LIGHT_BLUE, (pipe_x, 0, pipe_width, pipe_height))
+    pygame.draw.rect(screen, LIGHT_BLUE, (pipe_x, pipe_height + pipe_gap, pipe_width, 600))
     score_text = small_font.render(str(score), True, WHITE)
     screen.blit(score_text, (score_x, score_y))
 
