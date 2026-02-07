@@ -14,6 +14,9 @@ some of the game mechanics.
 screen = pygame.display.set_mode((400, 600))
 pygame.display.set_caption("Flappy Bird")
 point_sound = pygame.mixer.Sound('point.wav')
+pygame.mixer.music.load('music.wav.wav')
+pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(-1)
 
 # Colors -->
 # NOTE: This is in the RGB (Red, Green, Blue) format
