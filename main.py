@@ -44,7 +44,7 @@ score_y = 10
 # Player Variables -->
 bird_x = 50
 bird_y = 300
-bird_velocity = 0
+bird_velocity = 8
 # TODO 1: Tweaking the physics
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
 gravity = 0.60
@@ -95,6 +95,7 @@ while running:
                     game_started = True
                     bird_y = 300
                     pipe_height = random.randint(100, 400)
+                    pipe_speed = 6
 
     if game_started == True and game_over == False:
         bird_velocity = bird_velocity + gravity
