@@ -14,9 +14,9 @@ The project is designed as an introductory programming assignment (PA0). Most of
 ## 👥 Team Information
 
 ### Partner #1
-- **Name: Alejandro Irizarry**
-- **Student Number:**
-- **Email: alejandro.irizarry@upr.edu**
+- **Name: Natalie Alameda** 
+- **Student Number: 802-75-0156**
+- **Email: natalie.alameda@upr.edu**
 
 ### Partner #2
 - **Name:**
@@ -25,6 +25,7 @@ The project is designed as an introductory programming assignment (PA0). Most of
 
 ## ⭐ Bonus Features (Optional)
 List and briefly describe any additional features or enhancements implemented beyond the basic requirements.
-- Background music
-- Custom pipe color
-- Pipe speed increases over time
+- Bonus Feature 1 
+-**Custom Pipe Colors:** Change the default pipe color to light blue for a personalized theme. 
+-**Background Music:** Integrated a continous background music track, although my partner eventually changed it. 
+- Bonus Feature 2
